@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gochi Hand';
+    user-select: none;
+}
+
+body {
+    background-color: rgb(70, 192, 86);
+    position: relative;
+}
+
+#header {
+    height: 32px;
+    position: relative;
+    top: 40px;
+    text-align: center;
+}
+
+#score {
+    font-size: 40pt;
+    color: rgb(106, 57, 11);
+}
+
+#time {
+    font-size: 25pt;
+}
+
+#grid {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    top: 110px;
+    margin: auto;
+}
+
+.hole, .mole{
+    width: 150px;
+    height: 150px; 
+    background-size: cover;
+}
+
+.mole {
+    background-image: url('images/mole.png');
+}
+
+.hole {
+    background-image: url('images/hole.png');
+}
+
+#restart {
+    background-color: rgb(56, 155, 56);
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    position: relative;
+    top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50pt;
+    color: white;
+    cursor: pointer;
+}
+
+img {
+    height: 30px;
+}
+
+

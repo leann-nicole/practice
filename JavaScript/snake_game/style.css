@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background-color: rgb(26, 26, 26);
+}
+
+#gameTitle {
+    height: 80px;
+}
+
+h1 {
+    height: 80px;
+    font-size: 30px;
+    font-family: "Hammersmith One";
+    color: rgb(216, 216, 216);
+    padding: 25px;
+    text-align: center;
+}
+
+#score {
+    height: 80px;
+}
+
+#score > h2, #restart > h2 {
+    font-size: 30px;
+    font-family: "Hammersmith One";
+    color: rgb(216, 216, 216);
+    padding: 25px;
+    text-align: center;
+}
+
+#restart {
+    height: 50px;
+    background-color: rgb(48, 48, 48);
+    width: 120px;
+    border-radius: 25px;
+    margin: auto;
+    cursor: pointer;
+}
+
+#restart > h2 {
+    font-size: 20px;
+    padding: 15px;
+}
+
+#gameBoard {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(168, 214, 41);
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(168, 214, 41);
+}
+
+.food {
+    border-radius: 50%;
+    background-color: rgb(89, 111, 30);
+}
+
+.snake {
+    background-color: rgb(89, 111, 30);
+}

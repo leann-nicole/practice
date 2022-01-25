@@ -1,0 +1,56 @@
+PROGRAM 1
+In this program, we named a memory location in the data segment as "members". Starting from this location we stored a string of bytes. This string is the text which will be printed to the command line. Here, 10 represents a newline and 13 represents a carriage return. The string has a dollar sign at the end which is interpreted as a terminating character by the assembler. To display our text (our group members) we load the constant value 9 to the higher byte of the ax register. This prints up until the dollar sign. We then create a software interrupt. INT 21h transfers control to the operating system, to a subprogram that handles Input/Output operations.
+---------------------------------------------------------------------------------
+PROGRAM 2
+In this program, we created a variable to hold the numeric value called "num" and set its initial value to 0. We made a loop that:
+
+	First, checks if "num" is equal to 100.
+	If yes, we exit the loop and return control back to DOS. In other words, terminate the program.
+	If no, we convert "num" to a string. We do this because we can't directly print numbers with more than 2 digits using 02h. We have to use 09h.
+	Next, we print the number.
+	And then increment it. 
+
+We converted the number to string format by repeatedly dividing it by 10 and pushing the remainders to the stack. Then we popped those values and stored then in the variable "numstring".
+---------------------------------------------------------------------------------PROGRAM 3
+In this program, we loaded ah register with 01h to receive a single character input from the user. The input value gets stored in the al register so we mov it to the dl register since the operating system refers to the dx register for the data to output. To convert this single character to uppercase we subtracted 32 from it simply because the ASCII code for lowecase 'a' is 97 and the ASCII code for uppercase 'A' is 65. For single character output, we loaded 02h to the ah register then created a software interrupt: int 21h.
+---------------------------------------------------------------------------------
+PROGRAM 4 
+In this program, we created 2 macros to make our code cleaner and avoid repetition. We first ask the user to input two strings. For this, we loaded the ah register with 0ah. It's a hexadecimal number equivalent to 10 in decimal. With this command, we can receive data up until the Enter key is pressed by the user. We store these strings in the "firststr" and "secondstr" variables in the data segment. We first compare the length of these strings by looking at the second bytes of "firststr" and "secondstr". If they are not the same in length, then automatically that means the strings are not same so we print that by using the "say" macro. If the strings are of the same length, however, we traverse them both and compare each character. We do this by incrementing the si and di registers. If the current character is a dollar sign, that means we have compared all characters and they are all the same. So we print that they are. 
+---------------------------------------------------------------------------------
+PROGRAM 5
+In this program, we used only 1 macro which prints a newline. This program works by playing with the offset address of our "the_string" variable. To store to this variable, we receive string input from the user by moving 0ah to the ah register. 0ah is a hexadecimal number equivalent to 10 in decimal. With this command, we can receive data up until the Enter key is pressed by the user. We then load the offset address of "the_string" to si using the LEA opcode. To see the first character we mov the value located in si+2 to the dx register. Then display it by moving 02h to ah and creating a software interrupt int 21h. To see the last character, we use a loop that will continue to increment si until a dollar sign is met. We display the last character by moving the value located in si-3 to the dx register. 
+---------------------------------------------------------------------------------
+PROGRAM 6
+In this program, we use a macro which displays text. We created a variable named "message" where the user input gets stored and another variable named "strrev" where the reversed version of the user-given string will be stored. To make a reversed version of the string:
+	We first get the offset addresses of "message" and "strrev" and store them in si and di registers respectively.
+	Then, using a loop, we let si point to the last character of the string.
+	Using another loop, we copy the value located at the address stored in si to the address located in di.
+	We decrement si and increment di. 
+	Once we exit this loop, we now have the reverse version of the string stored in "strrev" and we can print this using our "say" macro.	
+---------------------------------------------------------------------------------
+PROGRAM 7
+In this program, we have 2 macros: ask and show_result. We use the "ask" macro to prompt the user to input the numbers with which we'll perform addition, subtraction, division, and multiplication. To store these numbers, we defined "num1" and "num2" variables in the data segment. We know that the numbers will be stored in string format, so first, we call the "string2num" procedure to convert them into actual numbers. Before that we first loaded the offset address of the variable containing the string to the si register and the offset address of the variable to hold the actual numeric value to the di register. We then call the "string2num" procedure which will do the following:
+	First, set the value of cx to the number of characters in the string.
+	Use this value for looping and for making si point to the last character.
+	Then loop:
+	Extract the character which si points to, then convert it to numeric value by subtracting 48.
+	Multiply the result with the appropriate power of 10.
+	Add the product to the "value" variable in memory.
+After completing this loop, we now have converted the string input into literal numbers that we can perform operations on. They are stored in the "val1" and "val2" variables.
+For all the 4 operations, we need to move the first value "val1" to the ax register first. The second value "val2" will be our operand. The answer to these operations, we will store them in the "answer" variable defined in our data segment. They should be converted to string format so that we can output them to the command line using mov ah, 09h. For that to happen we again make use of the "num2string" procedure from our program 2. With that done, we can now access and output the data stored in "answer". 
+---------------------------------------------------------------------------------
+PROGRAM 8
+In this program, we ask for a string input from the user by moving 0ah to the ah register and store it in the "message" variable. Next, we load the offset address of this variable to the si register. To count the occurences of the lowercase 'c' in the string, we use a loop that continuously increments si until the terminating character, which is the dollar sign, is met. The utilized bx register to keep the count. We used the keywords "byte ptr[si]" to check the value stored in si instead of the address. If the value if a lowercase 'c' we add 1 to bx. Again, to display how many times letter 'c' occured in the string, we did not use 02h as that only works for single digits. What if there are more than 9 letter 'c's in the string? So converted the count to string format first and only then did we display it by moving 09h to ah register. We borrowed the code for converting a number to string from our program 2. 
+---------------------------------------------------------------------------------
+PROGRAM 9
+In this program, we make use of 2 essential procedures. First, the "string2num" procedure converts the user-given decimal number into an actual numeric value that we can use. This needs to be done because when we receive input via the 0ah command, the input will be in the form of a string and we we can't use that to make calculations. To convert from string format to numeric value, we did the following: 
+	First, set the value of cx to the number of characters in the string.
+	Use this value for looping and for making si point to the last character.
+	Then loop:
+	Extract the character which si points to, then convert it to numeric value by subtracting 48.
+	Multiply the result with the appropriate power of 10.
+	Add the product to the "value" variable in memory.
+After completing this loop, we now have converted the string into a literal number. We then convert it into its octal representation. For this we call the second procedure which is named "num2string". Again this is similar to the one found in our program 2. The only difference is that this time we repeatedly divide by 8 instead of 10. We then store the resulting octal representation in the "octa" variable which we have defined in our data segment. To display it, we mov 09h to the ah register and create a software interrupt int 21h. 
+---------------------------------------------------------------------------------
+PROGRAM 10
+This program uses the same code as program 4. In this program, we created 2 macros to make our code cleaner and avoid repetition. We first ask the user to input two values. For this, we loaded the ah register with 0ah. It's a hexadecimal number equivalent to 10 in decimal. With this command, we can receive data up until the Enter key is pressed by the user. We store these numbers in the "firstval" and "secondval" variables in the data segment. We first compare the length of these strings by looking at the second bytes of "firstval" and "secondval". If they are not the same in length, then automatically that means the values are not same so we print that by using the "say" macro. If the numbers are of the same length, however, we traverse them both and compare each character. We do this by incrementing the si and di registers. If the current character is a dollar sign, that means we have compared all digit characters and they are all the same. So we print that they are.

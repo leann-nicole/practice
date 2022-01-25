@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(26, 26, 26);
+  text-align: center;
+  color: white;
+  font-family: "Hammersmith One";
+  position: relative;
+}
+
+#controls {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: stretch;
+  position: absolute;
+}
+
+#backButton,
+#nextButton {
+  height: 100%;
+  width: 50%;
+  display: inline;
+}
+
+#message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: stretch;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+#boy, #girl, #yes, #no {
+    font-size: 30px;
+    display: inline;
+    width: 20%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(48, 48, 48);
+    cursor: pointer;
+}
+
+#textInput {
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 0;
+    margin: 0;
+    width: 15%;
+    background: transparent;
+    font-family: "Hammersmith One";
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+#textInput:focus {
+    outline: none;
+}
+
+#submitButton{
+    font-family: "Hammersmith One";
+    font-size: 30px;
+    background-color: rgb(48, 48, 48);
+    width: 20%;
+    padding: 20px;
+    position: relative;
+    top: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#hearts {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  top: -100px;
+}
+
+#heart {
+  height: 50px;
+  width: 50px;
+  background-image: url("images/heart.png");
+  background-size: cover;
+}
+
+#slots {
+  height: 35px;
+  width: 100%;
+  margin: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#slot {
+  display: inline;
+  width: 2%;
+  margin: 3px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(48, 48, 48);
+  cursor: pointer;
+}

@@ -1,0 +1,361 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: "American Typewriter";
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+#sitename > a > h1 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  padding: 20px 5px;
+}
+
+#quill {
+  background-image: url("images/quill.png");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(254, 194, 130);
+  height: 50px;
+  box-shadow: 0px 2px 8px black;
+  background-image: url("images/paper.jpeg");
+}
+
+#play,
+#read,
+#about {
+  width: 24%;
+  text-align: center;
+}
+
+#play:hover,
+#read:hover,
+#about:hover {
+  font-weight: bold;
+}
+
+body {
+  background-image: url("images/doodle.jpg");
+}
+
+#bodyWrapper {
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  background-image: url("images/paper.jpeg");
+  box-shadow: 0px -2px 8px black;
+  background-color: rgb(254, 194, 130);
+}
+
+#quill-footer {
+  background-image: url("images/quill-brown.png");
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+p {
+  color: #4c3823;
+}
+
+#score {
+  height: 80px;
+  width: 408px;
+  background-color: rgb(46, 46, 46);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#restart {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(159, 29, 0);
+  border-radius: 50px;
+  margin: auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px black;
+}
+
+#restartIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url("images/refresh.png");
+  background-size: cover;
+}
+
+#gameBoard {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  overscroll-behavior: none; /* isn't working, swipe down threshold still too low*/
+  border: rgb(46, 46, 46) solid 4px;
+  background-color: rgb(227, 227, 227);
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(227, 227, 227);
+}
+
+.food {
+  border-radius: 50%;
+}
+
+.snake,
+.food {
+  background-color: rgb(46, 46, 46);
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  /* for laptops and desktops */
+  #colWrapper {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .storyCol {
+    width: 25%;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .story {
+    margin: 5px 5px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* for mobile devices */
+  #colWrapper {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .storyCol {
+    width: 80%;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .story {
+    margin: 5px 0px;
+    width: 100%;
+  }
+}
+
+.story {
+  box-sizing: border-box;
+  background-color: rgb(227, 227, 227);
+  border-radius: 5px;
+  border: rgb(46, 46, 46) solid 2px;
+  min-height: 250px;
+  max-height: 400px;
+  padding: 15px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+#returnButton {
+  height: 50px;
+  width: 100px;
+  background-color: rgb(32, 155, 32);
+  margin: auto;
+  margin-top: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#upArrow {
+  height: 28px;
+  width: 28px;
+  background-image: url("images/up.png");
+  background-size: cover;
+}
+
+#wrapper {
+  height: 550px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  #geormie,
+  #leann {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #geormie,
+  #leann {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+#geormie,
+#leann {
+  background-size: cover;
+  border-radius: 100px;
+  border: rgb(46, 46, 46) solid 4px;
+  cursor: pointer;
+}
+
+#geormie {
+  background-image: url("images/geormie.jpg");
+  position: relative;
+  top: 40%;
+  transform: translate(0, -50%);
+}
+
+#leann {
+  background-image: url("images/leann.jpg");
+  position: relative;
+  top: 80%;
+  transform: translate(0, -50%);
+}
+
+#messages {
+  width: 70%;
+  height: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  margin-right: 10x;
+}
+
+#message1,
+#message2,
+#message3,
+#message4,
+#message5 {
+  width: 85%;
+  background-image: url("images/paper.jpeg");
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+#message1:hover,
+#message2:hover,
+#message3:hover,
+#message4:hover,
+#message5:hover {
+  width: 90%;
+}
+
+#message1,
+#message2 {
+  float: left;
+  margin-left: 10px;
+  box-shadow: -1px 1px 10px black;
+  border-bottom-left-radius: 0px;
+}
+
+#message2 {
+  margin-bottom: 20px;
+}
+
+#message3,
+#message4,
+#message5 {
+  margin-right: 10px;
+  margin-left: auto;
+  box-shadow: 1px 1px 10px black;
+  border-bottom-right-radius: 0px;
+}
+
+#selectedStory {
+  margin-top: 10px;
+  width: 80%;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  background-color: rgb(227, 227, 227);
+  border-radius: 5px;
+  border: rgb(46, 46, 46) solid 2px;
+  min-height: 500px;
+  max-height: 500px;
+  padding: 15px 10px;
+  overflow: auto;
+  text-overflow: ellipsis;
+  display: none;
+  box-shadow: 0px 0px 1000px 250px rgba(0, 0, 0, 0.311);
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  #selectedStory {
+    max-height: 400px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #selectedStory {
+    max-height: 600px;
+  }
+}

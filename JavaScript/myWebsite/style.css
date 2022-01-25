@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+header {
+  height: 55px;
+  background-color: #252526;
+}
+
+main {
+  height: 1500px;
+  background-color: #1e1e1e;
+}
+
+footer {
+  height: 120px;
+  background-color: #252526;
+}
+
+#logo {
+  font-family: "American Typewriter", sans-serif;
+  font-weight: 400;
+  line-height: 90%;
+  width: 60px;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+
+#logo > a {
+  position: absolute;
+  top: -8px;
+  text-decoration: none;
+  color: white;
+}
+
+#about,
+#tutorials,
+#projects {
+  font-family: "American Typewriter";
+  position: relative;
+  float: right;
+  top: 18px;
+}
+
+#projects > a,
+#tutorials > a,
+#about > a {
+  text-decoration: none;
+  color: white;
+}
+
+#about {
+  right: 20px;
+}
+
+#tutorials {
+  right: 50px;
+}
+
+#projects {
+  right: 80px;
+}
+
+#tool1 {
+  width: 55px;
+  height: 50px;
+  position: fixed;
+  top: 150px;
+  right: 0;
+  border-radius: 15px 0px 0px 0px;
+  background-color: #252526;
+  cursor: pointer;
+}
+
+#tool2 {
+  width: 55px;
+  height: 40px;
+  position: fixed;
+  top: 200px;
+  right: 0;
+  background-color: #252526;
+  cursor: pointer;
+}
+
+#tool3 {
+  width: 55px;
+  height: 40px;
+  position: fixed;
+  top: 240px;
+  right: 0;
+  background-color: #252526;
+  cursor: pointer;
+}
+
+#tool4 {
+  width: 55px;
+  height: 55px;
+  position: fixed;
+  top: 280px;
+  right: 0;
+  border-radius: 0px 0px 0px 15px;
+  background-color: #252526;
+  cursor: pointer;
+}
+
+#tool1:hover,
+#tool2:hover,
+#tool3:hover,
+#tool4:hover {
+  background-color: #2b2b2b;
+}
+
+#search {
+  width: 20px;
+  position: absolute;
+  left: 12px;
+  top: 20px;
+}
+
+#view {
+  width: 19px;
+  position: absolute;
+  left: 13px;
+  top: 10px;
+}
+
+#filter {
+  width: 20px;
+  position: absolute;
+  left: 12px;
+  top: 10px;
+}
+
+#theme {
+  width: 26px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+#footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#footer-logo{
+  color: #35363A;
+  font-family: "American Typewriter", serif;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 90%;
+  position: relative;
+  top: 22px;
+}
+
+#external{
+  float: left;
+  position: relative;
+  top: 22px;
+  left: 20px;
+}
+
+#gmail > img,
+#facebook > img,
+#github > img {
+  width: 20px;
+}
+
+#internal {
+  position: relative;
+  float: left;
+  top: 22px;
+  left: 40px;
+}
+
+#internal > a {
+  text-decoration: none;
+  color: #525252;
+  font-family: 'Open Sans';
+  font-size: 10pt;
+}
+
+#internal > a:hover {
+  color: #a2a2a2;
+}
+
+
