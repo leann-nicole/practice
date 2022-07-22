@@ -1,6 +1,6 @@
 # copycats
 
-a collection of small useless programs of various programming languages
+practice programs using different languages
 
 ## explanation
 
